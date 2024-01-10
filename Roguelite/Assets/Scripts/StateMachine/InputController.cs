@@ -11,6 +11,11 @@ public class InputController : MonoBehaviour
         inputActionAsset.Enable();
     }
 
+    public Vector2 GetMousePosition()
+    {
+        Vector2 mousePos = inputActionAsset.FindAction("MousePosition").ReadValue<Vector2>();
+        return mousePos;
+    }
     private void OnDisable()
     {
         inputActionAsset.Disable();

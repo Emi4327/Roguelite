@@ -8,13 +8,13 @@ public class PlayerMoveState : IState
     private StateMachine machine;
     public PlayerMoveState(StateMachine machine)
     {
-        this.machine = machine;
         Initialize(machine);
     }
     public void Initialize(StateMachine machine)
     {
         this.machine = machine;
         actions.Add(new PlayerMoveAction(machine));
+        actions.Add(new RotateTowardsMousePosAction(machine));
     }
     public void OnStateEnter()
     {

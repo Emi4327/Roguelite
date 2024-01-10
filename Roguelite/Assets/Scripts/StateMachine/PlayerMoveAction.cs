@@ -4,7 +4,6 @@ using UnityEngine.InputSystem;
 public class PlayerMoveAction : StateAction
 {
     private InputAction inputAction;
-    private StateMachine machine;
 
     public PlayerMoveAction(StateMachine machine)
     {
@@ -15,13 +14,12 @@ public class PlayerMoveAction : StateAction
     {
         PlayerStateMachine playerMachine = machine as PlayerStateMachine;
         inputAction = playerMachine.InputActionAsset.FindAction("Move");
-        this.machine = machine;
     }
     public override void Do(StateMachine machine)
     {
-        Move();
+        Move(machine);
     }
-    private void Move()
+    private void Move(StateMachine machine)
     {
         Vector2 movementInput = inputAction.ReadValue<Vector2>();
         Rigidbody2D rb = machine.GetParentComp<Rigidbody2D>() as Rigidbody2D;

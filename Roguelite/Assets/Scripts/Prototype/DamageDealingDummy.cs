@@ -10,19 +10,15 @@ public class DamageDealingDummy : MonoBehaviour
     [SerializeField] private float bulletSpawnInterval=1;
     [SerializeField] private float bulletSpeed=10;
     [SerializeField] private float timeToDisappear=4;
-
+    [SerializeField] private bool disableAttack;
 
     private float timer;
     private List<GameObject> bulletPool = new List<GameObject>();
     private int bulletPoolSize = 5;
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
     void Update()
     {
+        if(disableAttack) return;
         timer += Time.deltaTime;
         if(timer >= bulletSpawnInterval)
         {
