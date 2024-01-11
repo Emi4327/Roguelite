@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -16,8 +17,16 @@ public class InputController : MonoBehaviour
         Vector2 mousePos = inputActionAsset.FindAction("MousePosition").ReadValue<Vector2>();
         return mousePos;
     }
+    
+    public void AddBehaviourToKey(KeyCode key, Action method)
+    {
+        Debug.Log("Key: " + key.ToString());
+        inputActionAsset.FindAction(key.ToString()).performed += ctx => method.Invoke();
+    }
+
     private void OnDisable()
     {
         inputActionAsset.Disable();
     }
+
 }

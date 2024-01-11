@@ -10,8 +10,13 @@ public class PlayerStateMachine : StateMachine
     private PlayerStatistics playerStats;
     public PlayerStatistics PlayerStats  { get { return playerStats; } }
 
+    private Weapon weapon;
+    public Weapon Weapon { get { return weapon; } }
+
     private void Awake()
     {
         playerStats = GetComponent<PlayerStatistics>();
+        weapon = GetComponentInChildren<Weapon>();
+        GameManager.Instance.player = this;
     }
 }
