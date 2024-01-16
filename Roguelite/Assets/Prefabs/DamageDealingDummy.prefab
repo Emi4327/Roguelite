@@ -137,6 +137,7 @@ MonoBehaviour:
   bulletSpawnInterval: 1
   bulletSpeed: 20
   timeToDisappear: 4
+  disableAttack: 0
 --- !u!1 &4917987345453183706
 GameObject:
   m_ObjectHideFlags: 0
